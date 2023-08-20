@@ -39,6 +39,9 @@ python3 Challenge_2.py
 ```
 python3 Challenge_3.py
 ```
+# Author
+* Ron Maina
+
 # License 
 MIT License
 
