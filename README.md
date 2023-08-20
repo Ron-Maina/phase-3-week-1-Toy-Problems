@@ -11,7 +11,7 @@ The coding challenge has three challenges which require implementing using Pytho
 * Visual studio code
 
 # Project Setup
-* Fork the repo 
+* Open your terminal and Fork the repo 
 ```
 git clone git@github.com:Ron-Maina/phase-3-week-1-Toy-Problems.git
 ```
