@@ -14,6 +14,6 @@ def time_converter(hour, min, period):
             print(f"{hour + 12}{min} hrs")
             
     else:
-        print("Invalid format")
+        print("Invalid Time format")
          
 time_converter(int(input("Hour: ")), int(input("Min: ")), input("am/pm: "))
