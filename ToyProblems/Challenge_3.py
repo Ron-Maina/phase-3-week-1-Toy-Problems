@@ -1,3 +1,4 @@
+# Assigning each letter to a value
 alphabets = {
     "a": 1,
     "b": 2,
@@ -30,6 +31,8 @@ vowels = "a,e,i,o,u"
 consonants_substrings = []
 consonant_value = 0
 consonant_value_list = []
+
+# Calculates the values of the consonant substrings and returns the highest value
 def substring_value(consonants_substrings):
     for substring in consonants_substrings:
         if len(substring) == 1:
@@ -47,6 +50,7 @@ def substring_value(consonants_substrings):
 
     print(f"Highest consonant substring value: {max(consonant_value_list)}")
 
+# Splits a word and removes the vowels to get consonant substrings
 def get_consonants(string):
     if " " in string:
         print("No spaces")
@@ -69,6 +73,7 @@ def get_consonants(string):
 
         print(f"Consonant substrings: {consonants_substrings}")
         substring_value(consonants_substrings)
-           
+        
+# Takes a string input         
 get_consonants(input("Enter: "))
  
