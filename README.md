@@ -27,6 +27,8 @@ code .
 ```
 cd ToyProblems
 ```
+## Running the Challenges
+* Running the challenges prompts the user for input based on the challenge's requirements
 * To run the first challenge type 
 ```
 python3 Challenge_1.py
