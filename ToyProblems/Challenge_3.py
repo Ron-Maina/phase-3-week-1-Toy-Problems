@@ -27,13 +27,19 @@ alphabets = {
     "z": 26,
 }
 vowels = "a,e,i,o,u"
-consonants = []
-
-def substring_value(character):
-        highest = 0
+consonants_substrings = []
+consonant_value = 0
+consonant_value_list = []
+def substring_value(substring):
+    for character in substring: 
         value = alphabets[character]
-        highest += value
-        print(highest)
+        global consonant_value
+        consonant_value += value
+
+    consonant_value_list.append(consonant_value)
+    consonant_value = 0
+
+    # print(f"Highest consonant substring value: {max(consonant_value_list)}")
 
 def get_consonants(string):
     if " " in string:
@@ -42,6 +48,7 @@ def get_consonants(string):
     else:
         filtered_vowels = list(filter(lambda character: character in vowels, string))
         if filtered_vowels == []:
+            consonants_substrings.append(string)
             for character in string:
                 substring_value(character)
         else: 
@@ -53,51 +60,13 @@ def get_consonants(string):
                 for substring in substrings:
                     string = substring
                     if any(vowel in filtered_vowels for vowel in string) == False:
-                        consonants.append(string)
-        print(consonants)
-        for substring in consonants:
-            if len(substring) == 1:
-                substring_value(substring)
-            else:
-                for characters in substring:
-                    substring_value(characters)
+                        consonants_substrings.append(string)
 
+        print(f"Consonant substrings: {consonants_substrings}")
+        print(f"Highest consonant substring value: {max(consonant_value_list)}")
 
-
-
-                            # for vowel in filtered_vowels:
-            #     if string.find(f"{vowel}") == 0 or string.find(f"{vowel}") == len(string) - 1:
-            #         string = string.replace(f"{vowel}", "")
-            #         if any(char in filtered_vowels for char in string) == True:
-            #             substrings = (word for word in string.split(f"{vowel}"))
-            #             for x in substrings:
-            #                 print(x)
-            #     else:
-            #         substrings = (word for word in string.split(f"{vowel}"))
-            #         for substring in substrings:
-            #             string = substring
-            #             print(string)
-        
-
-
-
-
-            # if vowel in string[0] or string[-1]:
-            #     print(vowel)
-                # string = string.replace(f"{vowel}", "")
-                # print(string)
-            # substrings = (word for word in string.split(f"{vowel}"))
-        
-        # for character in vowels:
-        #     print(character)
-        #     substrings = (word for word in string.split(f"{character}"))
-        #     for substring in substrings:
-        #         string = substring
-        #         print(string)
-
-                
-                
-               
-            
+        for substring in consonants_substrings:
+            substring_value(substring)
+           
 get_consonants(input("Enter: "))
  
