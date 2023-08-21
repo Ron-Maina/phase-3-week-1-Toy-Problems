@@ -30,16 +30,22 @@ vowels = "a,e,i,o,u"
 consonants_substrings = []
 consonant_value = 0
 consonant_value_list = []
-def substring_value(substring):
-    for character in substring: 
-        value = alphabets[character]
-        global consonant_value
-        consonant_value += value
+def substring_value(consonants_substrings):
+    for substring in consonants_substrings:
+        if len(substring) == 1:
+            value = alphabets[substring]
+            global consonant_value
+            consonant_value += value
+            consonant_value_list.append(consonant_value)
+            consonant_value = 0
+        else:
+            for character in substring:
+                value = alphabets[character]
+                consonant_value += value
+            consonant_value_list.append(consonant_value)
+            consonant_value = 0
 
-    consonant_value_list.append(consonant_value)
-    consonant_value = 0
-
-    # print(f"Highest consonant substring value: {max(consonant_value_list)}")
+    print(f"Highest consonant substring value: {max(consonant_value_list)}")
 
 def get_consonants(string):
     if " " in string:
@@ -49,8 +55,7 @@ def get_consonants(string):
         filtered_vowels = list(filter(lambda character: character in vowels, string))
         if filtered_vowels == []:
             consonants_substrings.append(string)
-            for character in string:
-                substring_value(character)
+            substring_value(consonants_substrings)
         else: 
             filtered_vowels = list(filter(lambda character: character in vowels, string))
             for vowel in filtered_vowels:
@@ -63,10 +68,7 @@ def get_consonants(string):
                         consonants_substrings.append(string)
 
         print(f"Consonant substrings: {consonants_substrings}")
-        print(f"Highest consonant substring value: {max(consonant_value_list)}")
-
-        for substring in consonants_substrings:
-            substring_value(substring)
+        substring_value(consonants_substrings)
            
 get_consonants(input("Enter: "))
  
